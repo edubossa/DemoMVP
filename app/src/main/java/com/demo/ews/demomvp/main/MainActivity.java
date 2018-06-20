@@ -1,5 +1,6 @@
 package com.demo.ews.demomvp.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +10,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.demo.ews.demomvp.R;
-import com.demo.ews.demomvp.adapter.LivroAdapter;
+import com.demo.ews.demomvp.maindetail.MainDetailActivity;
+import com.demo.ews.demomvp.model.Livro;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -20,14 +23,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private RecyclerView recyclerView;
     private MainContract.Presenter mPresenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Passo a minha Activity como parametro para o meu presenter
-        mPresenter = new MainPresenter(this);
 
         //Instanciando meu RecyclerView
         this.recyclerView = (RecyclerView) findViewById(R.id.livroRecyclerView);
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         //TODO ao inves de iniciar aqui esta chamando no mPresenter.start()
         //this.recyclerView.setAdapter(new LivroAdapter(mPresenter.buscarLivros(), mPresenter));
 
+        //Passo a minha Activity como parametro para o meu presenter
+        mPresenter = new MainPresenter(this, recyclerView);
         mPresenter.start();
 
 
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         newCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calculadora(); //TODO ver se faz sentido chamar aqui
+                addCalculadora();
             }
         });
     }
@@ -76,16 +78,23 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mPresenter = presenter;
     }
 
-    @Override
+    /*@Override
     public RecyclerView getRecyclerView() { //TODO ver se faz sentido disponibilizei no MainContract.View
         return recyclerView;
+    }*/
+
+    @Override
+    public void addCalculadora() {
+        Log.d("TAG", "chamando tela calcularoda");
+        Toast.makeText(this, "TELA EM CONSTRUCAO", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void calculadora() {
-        Log.d("TAG", "chamando tela calcularoda");
+    public void detail(Livro livro) {
+        Intent intent = new Intent(this, MainDetailActivity.class);
+        intent.putExtra("LIVRO_SELECTED", livro);
+        startActivity(intent);
     }
-
 
 
 }

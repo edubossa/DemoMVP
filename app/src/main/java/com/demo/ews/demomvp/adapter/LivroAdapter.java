@@ -30,6 +30,11 @@ public class LivroAdapter extends RecyclerView.Adapter<LivroAdapter.LivroViewHol
         this.presenter = presenter;
     }
 
+    /*public LivroAdapter(List<Livro> livros, MainContract.View view) {
+        this.livros = livros;
+        this.view = view;
+    }*/
+
     @Override
     public LivroViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.livro, parent, false);
@@ -45,6 +50,7 @@ public class LivroAdapter extends RecyclerView.Adapter<LivroAdapter.LivroViewHol
             public void onClick(View v) {
                 //onItemClickListener.onItemClick(livro); TODO aqui
                 presenter.onItemClick(livro);
+                //view.onItemClick(livro);
             }
         });
 
