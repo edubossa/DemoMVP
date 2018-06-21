@@ -6,11 +6,13 @@ import com.demo.ews.demomvp.BasePresenter;
 import com.demo.ews.demomvp.BaseView;
 import com.demo.ews.demomvp.model.Livro;
 
+import java.util.List;
+
 public interface MainContract {
 
     interface View extends BaseView<Presenter> {
 
-        //RecyclerView getRecyclerView();
+        void showListLivros(List<Livro> livros);
 
         /**
          * Chama a tela calculadora
@@ -22,20 +24,18 @@ public interface MainContract {
          *
          * @param livro
          */
-        void detail(Livro livro);
+        void abrirTelaDetalhe(Livro livro);
 
 
     }
 
     interface Presenter extends BasePresenter {
 
-        /**
-         * Obtem o evento do click da lista, e redireciona pra tela de detalhe
-         *
-         * @param livro
-         */
-        void onItemClick(Livro livro);
+        void detalheLivro(Livro livro);
 
+        void loadLivros();
+
+        void openCalculadora();
 
     }
 

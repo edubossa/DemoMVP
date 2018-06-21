@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".maindetail.MainDetailActivity"></activity>
+        <activity android:name=".maindetail.MainDetailActivity" />
+        <activity android:name=".calculadora.CalculadoraActivity"></activity>
     </application>
 
 </manifest>

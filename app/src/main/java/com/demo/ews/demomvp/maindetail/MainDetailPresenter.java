@@ -11,5 +11,6 @@ public class MainDetailPresenter implements MainDetailContract.Presenter {
     @Override
     public void start() {
 
+
     }
 }
