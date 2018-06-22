@@ -31,6 +31,11 @@ public class MainPresenter implements MainContract.Presenter {
         view.addCalculadora();
     }
 
+    @Override
+    public void addNewCadastro() {
+        view.showCadastro();
+    }
+
 
     @Override
     public void start() {

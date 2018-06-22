@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.demo.ews.demomvp.R;
 import com.demo.ews.demomvp.adapter.LivroAdapter;
+import com.demo.ews.demomvp.cadastro.CadastroActivity;
 import com.demo.ews.demomvp.calculadora.CalculadoraActivity;
 import com.demo.ews.demomvp.maindetail.MainDetailActivity;
 import com.demo.ews.demomvp.model.Livro;
@@ -49,6 +50,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 mPresenter.openCalculadora();
             }
         });
+
+        FloatingActionButton newCadastro = (FloatingActionButton) findViewById(R.id.cadastro);
+        newCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.addNewCadastro();
+            }
+        });
+
     }
 
     @Override
@@ -112,6 +122,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Intent intent = new Intent(this, MainDetailActivity.class);
         intent.putExtra("LIVRO_SELECTED", livro);
         startActivity(intent);
+    }
+
+    @Override
+    public void showCadastro() {
+        startActivity(new Intent(this, CadastroActivity.class));
     }
 
 

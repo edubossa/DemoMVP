@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".maindetail.MainDetailActivity" />
-        <activity android:name=".calculadora.CalculadoraActivity"></activity>
+        <activity android:name=".calculadora.CalculadoraActivity" />
+        <activity android:name=".cadastro.CadastroActivity"></activity>
     </application>
 
 </manifest>

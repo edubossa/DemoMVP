@@ -26,6 +26,8 @@ public interface MainContract {
          */
         void abrirTelaDetalhe(Livro livro);
 
+        void showCadastro();
+
 
     }
 
@@ -36,6 +38,8 @@ public interface MainContract {
         void loadLivros();
 
         void openCalculadora();
+
+        void addNewCadastro();
 
     }
 
