@@ -23,6 +23,7 @@ public class CadastroPresenter implements CadastroContract.Presenter {
         Log.d("CadastroPresenter", CadastroRepository.findAll().toString());
         CadastroRepository.add(c);
         view.showToastMessage("Dados inseridos com sucesso!");
+        view.showMain();
     }
 
     @Override
